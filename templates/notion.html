@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template Gerado</title>
+    <style>
+        body { font-family: sans-serif; margin: 2em; text-align: center; }
+        h1 { color: #4CAF50; }
+        p { margin-bottom: 2em; font-size: 1.1em; color: #555; }
+        .nav-buttons { margin-top: 2em; }
+        .nav-buttons a {
+            padding: 0.5em 1em;
+            background-color: #4CAF50;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 1em;
+        }
+        .nav-buttons a:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <h1>Template Gerado com Sucesso!</h1>
+    <p>Seu template do Notion foi gerado e está pronto para ser utilizado.</p>
+    <div class="nav-buttons">
+        <a href="{{ url_for('index') }}">Voltar para Início</a>
+        <a href="https://www.notion.so/{{page_id}}" target="_blank">Ir para o Notion</a>
+    </div>
+</body>
+</html>

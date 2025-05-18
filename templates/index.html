@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrilhAI</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+        .container {
+            background-color: #fff;
+            padding: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 600px;
+        }
+        h1 {
+            color: #2c3e50;
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+        label {
+            margin-top: 1em;
+            color: #555;
+            font-weight: bold;
+        }
+        input[type="text"],
+        input[type="file"],
+        textarea {
+            padding: 0.75em;
+            margin-bottom: 1.5em;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 0.75em 1em;
+            background-color: #5cb85c;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1em;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #4cae4c;
+        }
+        .error {
+            color: #d9534f;
+            margin-top: 0.5em;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>TrilhAI</h1>
+        <form method="post" enctype="multipart/form-data">
+            <label for="area_formacao">Área de Formação:</label>
+            <input type="text" id="area_formacao" name="area_formacao" required>
+
+            <label for="formacao_previa">Formação Prévia (CV em PDF):</label>
+            <input type="file" id="formacao_previa" name="formacao_previa" accept=".pdf">
+
+            <label for="area_enfase">Área de Ênfase (opcional):</label>
+            <input type="text" id="area_enfase" name="area_enfase">
+
+            <label for="objetivo">Objetivos (até 3, opcional):</label>
+            <input type="text" id="objetivo1" name="objetivo" placeholder="Objetivo 1">
+            <input type="text" id="objetivo2" name="objetivo" placeholder="Objetivo 2">
+            <input type="text" id="objetivo3" name="objetivo" placeholder="Objetivo 3">
+
+            <label for="orcamento">Orçamento:</label>
+            <input type="text" id="orcamento" name="orcamento" required>
+
+            <label for="tempo">Tempo Disponível:</label>
+            <input type="text" id="tempo" name="tempo" required>
+
+            <button type="submit">Gerar Trilha de Estudos</button>
+        </form>
+    </div>
+</body>
+</html>

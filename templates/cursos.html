@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cursos Recomendados</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            background-color: #f8f9fa;
+            color: #343a40;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2em;
+        }
+        h1 {
+            color: #007bff;
+            text-align: center;
+            margin-bottom: 1.5em;
+        }
+        .materia {
+            background-color: #fff;
+            padding: 1.5em;
+            margin-bottom: 2em;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            width: 90%;
+            max-width: 700px;
+        }
+        h2 {
+            color: #28a745;
+            margin-top: 0;
+            border-bottom: 2px solid #28a745;
+            padding-bottom: 0.5em;
+            margin-bottom: 0.75em;
+        }
+        h3 {
+            color: #17a2b8;
+            margin-top: 1em;
+            margin-bottom: 0.5em;
+        }
+        .disciplinas {
+            margin-top: 0.75em;
+        }
+        .disciplinas ul {
+            padding-left: 1.5em;
+        }
+        .disciplinas li {
+            margin-bottom: 0.5em;
+            color: #495057;
+        }
+        .cursos {
+            margin-top: 1em;
+        }
+        .curso {
+            margin-top: 0.75em;
+            color: #495057;
+        }
+        .curso strong {
+            font-weight: bold;
+            color: #343a40;
+        }
+        .curso a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        .curso a:hover {
+            text-decoration: underline;
+            color: #0056b3;
+        }
+        .nav-buttons {
+            text-align: center;
+            margin-top: 2em;
+        }
+        .nav-buttons a {
+            display: inline-block;
+            padding: 0.75em 1.5em;
+            background-color: #007bff;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            margin: 0 0.5em;
+            transition: background-color 0.3s ease;
+        }
+        .nav-buttons a:hover {
+            background-color: #0056b3;
+        }
+        .no-results {
+            text-align: center;
+            padding: 1em;
+            color: #6c757d;
+        }
+    </style>
+</head>
+<body>
+    <h1>Cursos Recomendados</h1>
+    {% if trilha_estudo_com_cursos %}
+        {% for materia in trilha_estudo_com_cursos %}
+            <div class="materia">
+                <h2>{{ materia.materia.titulo }}</h2>
+                <p style="color: #6c757d;">Tempo Estimado: {{ materia.tempo }}</p>
+                <div class="disciplinas">
+                    <h3>Disciplinas:</h3>
+                    <ul>
+                        {% for disciplina in materia.materia.disciplinas %}
+                            <li>{{ disciplina.titulo }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+                <div class="cursos">
+                    <h3>Cursos:</h3>
+                    <div class="curso">
+                        <p><strong>{{ materia.curso1.titulo }}:</strong> <a href="{{ materia.curso1.link }}" target="_blank">{{ materia.curso1.link }}</a> (Preço: {{ materia.curso1.preco }})</p>
+                    </div>
+                    <div class="curso">
+                        <p><strong>{{ materia.curso2.titulo }}:</strong> <a href="{{ materia.curso2.link }}" target="_blank">{{ materia.curso2.link }}</a> (Preço: {{ materia.curso2.preco }})</p>
+                    </div>
+                </div>
+            </div>
+        {% endfor %}
+    {% else %}
+        <p class="no-results">Nenhuma trilha de estudo encontrada.</p>
+    {% endif %}
+    <div class="nav-buttons">
+        <a href="{{ url_for('index') }}">Voltar para Início</a>
+        <a href="{{ url_for('notion') }}">Gerar Template Notion</a>
+    </div>
+</body>
+</html>
