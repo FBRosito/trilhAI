@@ -1,5 +1,18 @@
 # 🧠 TrilhAI – Conectando Google AI ao Notion
 
+### Para rodar o projeto, deve ser gerado um ambiente virtual Python (venv) - https://docs.python.org/3/library/venv.html#module-venv
+
+# Pacotes necessários: 
+```
+pip install dotenv flask google-genai google-adk
+```
+# Comando para rodar aplicação Flask:
+```
+flask run
+```
+
+# É necessário chave de API do Google AI Studio e de uma Page ID e um Token de Integração do Notion. Para isso foi criado o tutorial abaixo:
+
 ## 1. Gere sua chave de API no Google AI Studio
 
 Acesse: [https://aistudio.google.com/app/prompts/new_chat]
